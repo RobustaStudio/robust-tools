@@ -6,7 +6,9 @@
 		"commit": "git-cz",
 		"lint": "run-p -c lint:*",
 		"lint:js": "eslint 'packages/**/*.js'",
-		"lint:css": "stylelint 'packages/**/*.css'"
+		"lint:css": "stylelint 'packages/**/*.css'",
+		"prerelease": "npm run build",
+		"release": "lerna publish"
 	},
 	"config": {
 		"commitizen": {

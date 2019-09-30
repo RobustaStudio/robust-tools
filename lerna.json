@@ -1,6 +1,15 @@
 {
-  "packages": [
-    "packages/*"
-  ],
-  "version": "independent"
+	"packages": [
+		"packages/*"
+	],
+	"version": "independent",
+	"command": {
+		"publish": {
+			"conventionalCommits": true,
+			"registry": "http://localhost:4873",
+			"access": "public",
+			"npmClient": "npm",
+			"allowBranch": ["master", "feature/*"]
+		}
+	}
 }

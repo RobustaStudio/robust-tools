@@ -3,14 +3,22 @@
 	"private": true,
 	"scripts": {
 		"build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --no-comments'",
+		"commit": "git-cz",
 		"lint": "run-p -c lint:*",
 		"lint:js": "eslint 'packages/**/*.js'",
 		"lint:css": "stylelint 'packages/**/*.css'"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-lerna-changelog"
+		}
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.6.2",
 		"@babel/core": "^7.6.2",
 		"@babel/preset-env": "^7.6.2",
+		"commitizen": "^4.0.3",
+		"cz-lerna-changelog": "^2.0.2",
 		"eslint": "^6.5.0",
 		"eslint-config-prettier": "^6.3.0",
 		"eslint-plugin-prettier": "^3.1.1",

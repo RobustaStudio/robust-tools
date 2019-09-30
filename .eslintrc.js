@@ -4,7 +4,13 @@ module.exports = {
 		'es6': true,
 		'jasmine': true
 	},
-	'extends': 'eslint:recommended',
+	'extends': [
+		'eslint:recommended',
+		'prettier'
+	],
+	'plugins': [
+		'prettier'
+	],
 	'globals': {
 		'Atomics': 'readonly',
 		'SharedArrayBuffer': 'readonly'
@@ -29,6 +35,7 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
+		],
+		'prettier/prettier': 2
 	}
 };

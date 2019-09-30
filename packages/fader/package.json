@@ -1,0 +1,19 @@
+{
+  "name": "@robust-tools/fader",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "Ahmad Alfy <ahmadalfy@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/fader.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

@@ -1,7 +1,5 @@
 'use strict';
 
-const fader = require('..');
-
 describe('fader', () => {
-    it('needs tests');
+	it('needs tests');
 });

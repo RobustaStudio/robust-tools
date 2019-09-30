@@ -1,0 +1,126 @@
+.slider {
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background: #000;
+}
+
+.slider__slide {
+	height: 100%;
+	display: block;
+	color: #fff;
+	padding-top: 110px;
+	background-size: cover;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+	overflow: hidden;
+}
+
+.slider__img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	transform: scale(1.2);
+	opacity: 0;
+	transition: 1s ease opacity, 2s linear transform;
+}
+
+.slider__slide--active .slider__img {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.slider__title {
+	font-size: 100px;
+	text-transform: uppercase;
+	font-weight: 700;
+	text-align: center;
+	text-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+	letter-spacing: 80px;
+	opacity: 0;
+}
+
+.slider__slide--active .slider__title {
+	animation: focus-in-contract-bck 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+}
+
+.slider__slide--active {
+	z-index: 3;
+}
+
+.slider__navigation {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.slider__navigation li {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 3px;
+}
+
+.slider__navigation button {
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+	width: 50px;
+	text-indent: -9999px;
+	height: 30px;
+	font-size: 0;
+	overflow: hidden;
+	display: block;
+	border: 0;
+	border-bottom: 1px solid #fff;
+	position: relative;
+	outline: none;
+	opacity: 0.4;
+}
+
+.slider__navigation button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 0;
+	background-color: #fff;
+	transition: 0.1s linear all;
+	will-change: height;
+}
+
+.slider__navigation {
+	position: absolute;
+	bottom: 30px;
+	right: 0;
+	z-index: 3;
+}
+
+@media (min-width: 1200px) {
+	.slider__navigation {
+		right: 50%;
+		margin-right: -600px;
+	}
+}
+
+.slider__navigation button.active,
+.slider__navigation button:hover {
+	opacity: 1;
+}
+
+.slider__navigation button.active::after,
+.slider__navigation button:hover::after {
+	height: 5px;
+}

@@ -14,6 +14,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "BABEL_ENV=build babel lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --config-file ../../babel.config.js --no-comments"
   }
 }

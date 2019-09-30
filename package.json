@@ -1,7 +1,16 @@
 {
-  "name": "root",
-  "private": true,
-  "devDependencies": {
-    "lerna": "^3.16.4"
-  }
+	"name": "root",
+	"private": true,
+	"scripts": {
+		"build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --no-comments'"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.6.2",
+		"@babel/core": "^7.6.2",
+		"@babel/preset-env": "^7.6.2",
+		"lerna": "^3.16.4"
+	},
+	"dependencies": {
+		"@babel/polyfill": "^7.6.0"
+	}
 }

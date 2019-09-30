@@ -3,14 +3,17 @@
 	"private": true,
 	"scripts": {
 		"build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --no-comments'",
-		"lint": "eslint 'packages/**/*.js'"
+		"lint:js": "eslint 'packages/**/*.js'",
+		"lint:css": "stylelint 'packages/**/*.css'"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.6.2",
 		"@babel/core": "^7.6.2",
 		"@babel/preset-env": "^7.6.2",
 		"eslint": "^6.5.0",
-		"lerna": "^3.16.4"
+		"lerna": "^3.16.4",
+		"stylelint": "^11.0.0",
+		"stylelint-config-standard": "^19.0.0"
 	},
 	"dependencies": {
 		"@babel/polyfill": "^7.6.0"

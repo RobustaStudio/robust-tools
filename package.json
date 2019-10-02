@@ -40,26 +40,5 @@
 	},
 	"dependencies": {
 		"@babel/polyfill": "^7.6.0"
-	},
-	"lint-staged": {
-		"*.+(js|jsx)": [
-			"eslint --fix",
-			"prettier --write",
-			"git add"
-		],
-		"*.+(css)": [
-			"stylelint --fix",
-			"git add"
-		],
-		"*.+(json|md)": [
-			"prettier --write",
-			"git add"
-		]
-	},
-	"husky": {
-		"hooks": {
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-			"pre-commit": "lint-staged"
-		}
 	}
 }

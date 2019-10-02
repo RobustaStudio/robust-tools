@@ -1,6 +1,6 @@
 {
   "name": "@robust-tools/fader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Ahmad Alfy <ahmadalfy@gmail.com>",
   "homepage": "",
@@ -14,6 +14,7 @@
     "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "BABEL_ENV=build babel lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --config-file ../../babel.config.js --no-comments"
   }
 }

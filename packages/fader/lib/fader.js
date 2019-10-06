@@ -1,7 +1,7 @@
 'use strict';
 
 class Fader {
-	constructor(selector, options) {
+	constructor(selector, options = { autoplay: true }) {
 		this.options = options;
 		this.selector = selector;
 		this.initialize();
@@ -61,7 +61,9 @@ class Fader {
 		if (this.timer) {
 			clearTimeout(this.timer);
 		}
-		this.startTimer(+index);
+		if (this.options.autoplay) {
+			this.startTimer(+index);
+		}
 	}
 
 	resetActiveSlide() {

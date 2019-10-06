@@ -1,9 +1,10 @@
 'use strict';
 
 class Fader {
-	constructor(selector, options = { autoplay: true }) {
-		this.options = options;
+	constructor(selector, { autoplay = true, duration = 5000 } = {}) {
 		this.selector = selector;
+		this.autoplay = autoplay;
+		this.duration = duration;
 		this.initialize();
 	}
 
@@ -61,7 +62,7 @@ class Fader {
 		if (this.timer) {
 			clearTimeout(this.timer);
 		}
-		if (this.options.autoplay) {
+		if (this.autoplay) {
 			this.startTimer(+index);
 		}
 	}
@@ -84,7 +85,7 @@ class Fader {
 				nextSlideIndex = 0;
 			}
 			this.bullets[nextSlideIndex].click();
-		}, 5000);
+		}, this.duration);
 	}
 }
 

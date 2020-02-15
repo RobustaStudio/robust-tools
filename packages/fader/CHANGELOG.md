@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/RobustaStudio/robust-tools/compare/@robust-tools/fader@0.2.0...@robust-tools/fader@0.2.1) (2020-02-15)
+
+**Note:** Version bump only for package @robust-tools/fader
+
+
+
+
+
 # 0.2.0 (2020-02-15)
 
 

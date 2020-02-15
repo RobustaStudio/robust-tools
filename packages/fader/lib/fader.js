@@ -1,14 +1,14 @@
 'use strict';
 
 class Fader {
-	constructor(selector, options) {
+	constructor(selector, options = {}) {
 		this.options = options;
 		const defaultOptions = {
 			wrapperClasses: ['slider'],
 			titleAnimation: '', // focus-in-contract-bck, text-focus-in
 			transition: 5000,
 		};
-		Object.assign(defaultOptions, this.options);
+		this.options = { ...defaultOptions, ...this.options };
 		this.selector = selector;
 		this.initialize();
 	}

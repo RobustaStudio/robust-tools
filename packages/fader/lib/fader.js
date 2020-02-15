@@ -3,6 +3,12 @@
 class Fader {
 	constructor(selector, options) {
 		this.options = options;
+		const defaultOptions = {
+			wrapperClasses: ['slider'],
+			titleAnimation: '', // focus-in-contract-bck, text-focus-in
+			transition: 5000,
+		};
+		Object.assign(defaultOptions, this.options);
 		this.selector = selector;
 		this.initialize();
 	}
@@ -16,12 +22,26 @@ class Fader {
 
 		this.wrapper = this.generateWrapper();
 		this.bullets = this.generateBullets();
+
+		if (this.options.titleAnimation) {
+			this.assignAnimation();
+		}
+
 		this.bullets[0].click();
+	}
+
+	assignAnimation() {
+		const titles = this.wrapper.querySelectorAll('.slider__title');
+		if (titles.length > 0) {
+			titles.forEach((title) => {
+				title.classList.add(this.options.titleAnimation);
+			});
+		}
 	}
 
 	generateWrapper() {
 		const sliderWrapper = document.createElement('div');
-		sliderWrapper.classList.add('slider');
+		sliderWrapper.classList.add(...this.options.wrapperClasses);
 		this.slider.classList.add('slider__slides');
 		this.slider.parentNode.appendChild(sliderWrapper);
 		sliderWrapper.appendChild(this.slider);
@@ -82,7 +102,7 @@ class Fader {
 				nextSlideIndex = 0;
 			}
 			this.bullets[nextSlideIndex].click();
-		}, 5000);
+		}, this.options.transition);
 	}
 }
 

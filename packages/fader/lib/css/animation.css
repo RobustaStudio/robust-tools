@@ -19,8 +19,26 @@
 		filter: blur(12px);
 		opacity: 0;
 	}
+
 	100% {
 		transform: translateZ(12px);
+		filter: blur(0);
+		opacity: 1;
+	}
+}
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+@keyframes text-focus-in {
+	0% {
+		filter: blur(12px);
+		opacity: 0;
+	}
+
+	100% {
 		filter: blur(0);
 		opacity: 1;
 	}

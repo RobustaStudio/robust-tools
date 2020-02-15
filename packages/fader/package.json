@@ -17,5 +17,5 @@
 		"test": "",
 		"build": "BABEL_ENV=build babel lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --config-file ../../babel.config.js --no-comments"
 	},
-	"gitHead": "a28747348be7c12a9be660b3e325999e3ccc9de7"
+	"gitHead": "a83e1b42a5f6f5454c77708a27a739afe50f10e7"
 }

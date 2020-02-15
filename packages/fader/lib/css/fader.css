@@ -53,6 +53,14 @@
 }
 
 .slider__slide--active .slider__title {
+	opacity: 1;
+}
+
+.slider__slide--active .slider__title.text-focus-in {
+	animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.slider__slide--active .slider__title.focus-in-contract-bck {
 	animation: focus-in-contract-bck 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
 }
 
@@ -64,6 +72,10 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	position: absolute;
+	bottom: 30px;
+	right: 0;
+	z-index: 3;
 }
 
 .slider__navigation li {
@@ -99,13 +111,6 @@
 	background-color: #fff;
 	transition: 0.1s linear all;
 	will-change: height;
-}
-
-.slider__navigation {
-	position: absolute;
-	bottom: 30px;
-	right: 0;
-	z-index: 3;
 }
 
 @media (min-width: 1200px) {

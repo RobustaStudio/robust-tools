@@ -8,7 +8,7 @@
 		"lint:js": "eslint 'packages/**/*.js'",
 		"lint:css": "stylelint 'packages/**/*.css'",
 		"prerelease": "npm run build",
-		"release": "lerna publish",
+		"release": "lerna publish --no-commit-hooks",
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},

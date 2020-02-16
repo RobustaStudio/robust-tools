@@ -2,7 +2,7 @@
 	"name": "root",
 	"private": true,
 	"scripts": {
-		"build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward lib --out-dir dist --source-maps --extensions .js --delete-dir-on-start --no-comments'",
+		"build": "lerna exec --parallel 'BABEL_ENV=build babel --root-mode upward lib --out-dir dist --extensions .js --delete-dir-on-start --no-comments'",
 		"commit": "git-cz",
 		"lint": "run-p -c lint:*",
 		"lint:js": "eslint 'packages/**/*.js'",

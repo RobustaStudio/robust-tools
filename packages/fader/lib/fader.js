@@ -7,6 +7,9 @@ class Fader {
 			wrapperClasses: ['slider'],
 			titleAnimation: '', // focus-in-contract-bck, text-focus-in
 			transition: 5000,
+			autoplay: true,
+			bullets: true,
+			arrows: true,
 		};
 		this.options = { ...defaultOptions, ...this.options };
 		this.selector = selector;
@@ -19,15 +22,24 @@ class Fader {
 			console.warn(`Error: Cannot find element with the selector ${this.selector}`);
 			return false;
 		}
+		this.slides = this.slider.children;
 
 		this.wrapper = this.generateWrapper();
-		this.bullets = this.generateBullets();
+
+		if (this.options.arrows) {
+			this.arrows = this.generateArrows();
+		}
 
 		if (this.options.titleAnimation) {
 			this.assignAnimation();
 		}
 
-		this.bullets[0].click();
+		if (this.options.bullets) {
+			this.bullets = this.generateBullets();
+			this.bullets[0].click();
+		} else {
+			this.setActiveSlide(0);
+		}
 	}
 
 	assignAnimation() {
@@ -51,7 +63,6 @@ class Fader {
 	generateBullets() {
 		const bulletsContainer = document.createElement('ul');
 		bulletsContainer.classList.add('slider__navigation');
-		this.slides = this.slider.children;
 		for (let i = 0; i < this.slides.length; i++) {
 			const bullet = document.createElement('li');
 			const button = document.createElement('button');
@@ -66,22 +77,71 @@ class Fader {
 		return bulletsContainer.querySelectorAll('button');
 	}
 
-	handleClickedBullet(ev) {
-		// clear the active class
-		const active = ev.target.closest('ul').querySelector('.active');
-		if (active) {
-			active.classList.remove('active');
-		}
-		ev.target.classList.add('active');
-		// Set active slide
-		const { index } = ev.target.dataset;
+	generateArrows() {
+		const arrowsContainer = document.createElement('ul');
+		arrowsContainer.classList.add('slider__arrows');
 
+		// Generate previous arrow
+		const prevArrow = document.createElement('li');
+		const prevButton = document.createElement('button');
+		prevButton.addEventListener('click', this.handleClickPrevious.bind(this));
+		prevArrow.appendChild(prevButton);
+		arrowsContainer.appendChild(prevArrow);
+		this.slider.parentNode.insertBefore(arrowsContainer, this.slider.prevSibling);
+
+		// Generate next arrow
+		const nextArrow = document.createElement('li');
+		const nextButton = document.createElement('button');
+		nextButton.addEventListener('click', this.handleClickNext.bind(this));
+		nextArrow.appendChild(nextButton);
+		arrowsContainer.appendChild(nextArrow);
+		this.slider.parentNode.insertBefore(arrowsContainer, this.slider.nextSibling);
+
+		return arrowsContainer.querySelectorAll('button');
+	}
+
+	handleClickedBullet(ev) {
+		const { index } = ev.target.dataset;
+		this.resetActiveBullet();
+		ev.target.classList.add('active');
 		this.resetActiveSlide();
 		this.setActiveSlide(index);
+
+		if (!this.options.autoplay) {
+			return;
+		}
+
 		if (this.timer) {
 			clearTimeout(this.timer);
 		}
 		this.startTimer(+index);
+	}
+
+	handleClickNext() {
+		const activeSlide = this.slider.querySelector('.slider__slide--active');
+		const activeIndex = [...activeSlide.parentElement.children].indexOf(activeSlide);
+		this.resetActiveSlide();
+		this.resetActiveBullet();
+		if (activeIndex === this.slides.length - 1) {
+			this.setActiveSlide(0);
+			this.setActiveBullet(0);
+		} else {
+			this.setActiveSlide(activeIndex + 1);
+			this.setActiveBullet(activeIndex + 1);
+		}
+	}
+	handleClickPrevious() {
+		const activeSlide = this.slider.querySelector('.slider__slide--active');
+		const activeIndex = [...activeSlide.parentElement.children].indexOf(activeSlide);
+		this.resetActiveSlide();
+		this.resetActiveBullet();
+		if (activeIndex === 0) {
+			this.setActiveSlide(this.slides.length - 1);
+			this.setActiveBullet(this.slides.length - 1);
+		} else {
+			this.setActiveSlide(activeIndex - 1);
+			this.setActiveBullet(activeIndex - 1);
+		}
 	}
 
 	resetActiveSlide() {
@@ -91,8 +151,24 @@ class Fader {
 		}
 	}
 
+	resetActiveBullet() {
+		if (!this.options.bullets) {
+			return;
+		}
+		this.bullets.forEach((bullet) => {
+			bullet.classList.remove('active');
+		});
+	}
+
 	setActiveSlide(index) {
 		this.slides[index].classList.add('slider__slide--active');
+	}
+
+	setActiveBullet(index) {
+		if (!this.options.bullets) {
+			return;
+		}
+		this.bullets[index].classList.add('active');
 	}
 
 	startTimer(index) {

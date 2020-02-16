@@ -70,8 +70,9 @@ const myFader = new Fader(selector, options);
 
 ## Options
 
-| Option         | Type     | Default      | Details                                                                                                                 |
-| -------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| wrapperClasses | String[] | `['slider']` | List of the classes will be used to create the wrapper element around the slider                                        |
-| titleAnimation | String   | `''`         | The type of animation to be used on the slide title. Available animations are: `focus-in-contract-bck`, `text-focus-in` |
-| transition     | Number   | 5000         | Transition between every slide in milliseconds                                                                          |
+| Option         | Type       | Default      | Details                                                                                                                 |
+| -------------- | ---------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| wrapperClasses | `string[]` | `['slider']` | List of the classes will be used to create the wrapper element around the slider                                        |
+| titleAnimation | `string`   | `''`         | The type of animation to be used on the slide title. Available animations are: `focus-in-contract-bck`, `text-focus-in` |
+| transition     | `number`   | `5000`       | Transition between every slide in milliseconds                                                                          |
+| autoplay       | `boolean`  | `true`       | Start the slider automatically                                                                                          |

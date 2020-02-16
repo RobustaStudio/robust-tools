@@ -76,3 +76,7 @@ const myFader = new Fader(selector, options);
 | titleAnimation | `string`   | `''`         | The type of animation to be used on the slide title. Available animations are: `focus-in-contract-bck`, `text-focus-in` |
 | transition     | `number`   | `5000`       | Transition between every slide in milliseconds                                                                          |
 | autoplay       | `boolean`  | `true`       | Start the slider automatically                                                                                          |
+| bullets        | `boolean`  | `true`       | Generate and display the navigation bullets                                                                             |
+| arrows         | `boolean`  | `true`       | Generate and display the next and previous buttons                                                                      |
+| prevArrow      | `string`   | `'Prev'`     | The inner HTML of the previous button                                                                                   |
+| nextArrow      | `string`   | `'Next'`     | The inner HTML of the next button                                                                                       |

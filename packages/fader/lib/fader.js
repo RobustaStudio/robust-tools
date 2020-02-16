@@ -10,6 +10,8 @@ class Fader {
 			autoplay: true,
 			bullets: true,
 			arrows: true,
+			prevArrow: 'Prev',
+			nextArrow: 'Next',
 		};
 		this.options = { ...defaultOptions, ...this.options };
 		this.selector = selector;
@@ -84,6 +86,7 @@ class Fader {
 		// Generate previous arrow
 		const prevArrow = document.createElement('li');
 		const prevButton = document.createElement('button');
+		prevButton.innerHTML = this.options.prevArrow;
 		prevButton.addEventListener('click', this.handleClickPrevious.bind(this));
 		prevArrow.appendChild(prevButton);
 		arrowsContainer.appendChild(prevArrow);
@@ -92,6 +95,7 @@ class Fader {
 		// Generate next arrow
 		const nextArrow = document.createElement('li');
 		const nextButton = document.createElement('button');
+		nextButton.innerHTML = this.options.nextArrow;
 		nextButton.addEventListener('click', this.handleClickNext.bind(this));
 		nextArrow.appendChild(nextButton);
 		arrowsContainer.appendChild(nextArrow);

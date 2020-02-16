@@ -5,7 +5,8 @@
 	"author": "Ahmad Alfy <ahmadalfy@gmail.com>",
 	"homepage": "https://github.com/RobustaStudio/robust-tools/tree/master/packages/fader",
 	"license": "MIT",
-	"main": "lib/fader.js",
+	"main": "dist/fader.js",
+	"module": "lib/fader.js",
 	"directories": {
 		"lib": "lib",
 		"test": "__tests__"

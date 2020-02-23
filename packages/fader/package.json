@@ -1,6 +1,6 @@
 {
 	"name": "@robust-tools/fader",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "Fader is a component that works like a slider by fading slides above one another.",
 	"author": "Ahmad Alfy <ahmadalfy@gmail.com>",
 	"homepage": "https://github.com/RobustaStudio/robust-tools/tree/master/packages/fader",

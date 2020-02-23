@@ -5,17 +5,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.4.0](https://github.com/RobustaStudio/robust-tools/compare/@robust-tools/fader@0.2.3...@robust-tools/fader@0.4.0) (2020-02-23)
 
-
-### Bug Fixes
-
-* default and assigned objects merge ([f403ce5](https://github.com/RobustaStudio/robust-tools/commit/f403ce5))
-
-
 ### Features
 
-* add options for autoplay, arrows and bullets ([69e3c99](https://github.com/RobustaStudio/robust-tools/commit/69e3c99))
-* add options object to initialization ([834219a](https://github.com/RobustaStudio/robust-tools/commit/834219a))
-* add options to define content of arrows ([1393bed](https://github.com/RobustaStudio/robust-tools/commit/1393bed))
 * add pagination option ([ca6b418](https://github.com/RobustaStudio/robust-tools/commit/ca6b418))
 
 

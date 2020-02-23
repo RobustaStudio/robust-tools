@@ -70,13 +70,15 @@ const myFader = new Fader(selector, options);
 
 ## Options
 
-| Option         | Type       | Default      | Details                                                                                                                 |
-| -------------- | ---------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| wrapperClasses | `string[]` | `['slider']` | List of the classes will be used to create the wrapper element around the slider                                        |
-| titleAnimation | `string`   | `''`         | The type of animation to be used on the slide title. Available animations are: `focus-in-contract-bck`, `text-focus-in` |
-| transition     | `number`   | `5000`       | Transition between every slide in milliseconds                                                                          |
-| autoplay       | `boolean`  | `true`       | Start the slider automatically                                                                                          |
-| bullets        | `boolean`  | `true`       | Generate and display the navigation bullets                                                                             |
-| arrows         | `boolean`  | `true`       | Generate and display the next and previous buttons                                                                      |
-| prevArrow      | `string`   | `'Prev'`     | The inner HTML of the previous button                                                                                   |
-| nextArrow      | `string`   | `'Next'`     | The inner HTML of the next button                                                                                       |
+| Option                  | Type       | Default      | Details                                                                                                                 |
+| ----------------------- | ---------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| wrapperClasses          | `string[]` | `['slider']` | List of the classes will be used to create the wrapper element around the slider                                        |
+| titleAnimation          | `string`   | `''`         | The type of animation to be used on the slide title. Available animations are: `focus-in-contract-bck`, `text-focus-in` |
+| transition              | `number`   | `5000`       | Transition between every slide in milliseconds                                                                          |
+| autoplay                | `boolean`  | `true`       | Start the slider automatically                                                                                          |
+| bullets                 | `boolean`  | `true`       | Generate and display the navigation bullets                                                                             |
+| arrows                  | `boolean`  | `true`       | Generate and display the next and previous buttons                                                                      |
+| prevArrow               | `string`   | `'Prev'`     | The inner HTML of the previous button                                                                                   |
+| nextArrow               | `string`   | `'Next'`     | The inner HTML of the next button                                                                                       |
+| paginationInfo          | `boolean`  | `false`      | Display the number of the active slide out of the total slides                                                          |
+| paginationInfoSeparator | `string`   | `out of`     | The text that separates the numbers of the active slide from the total slides                                           |

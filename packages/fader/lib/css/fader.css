@@ -149,6 +149,18 @@
 	z-index: 3;
 }
 
+.slider__pagination {
+	bottom: 40px;
+	position: absolute;
+	z-index: 20;
+	font-size: 14px;
+	margin: auto;
+	width: 100px;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
 .slider__arrows li {
 	display: inline-block;
 	vertical-align: top;

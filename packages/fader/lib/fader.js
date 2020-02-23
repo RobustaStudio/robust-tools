@@ -12,6 +12,8 @@ class Fader {
 			arrows: true,
 			prevArrow: 'Prev',
 			nextArrow: 'Next',
+			paginationInfo: false,
+			paginationInfoSeparator: ' out of ',
 		};
 		this.options = { ...defaultOptions, ...this.options };
 		this.selector = selector;
@@ -41,6 +43,10 @@ class Fader {
 			this.bullets[0].click();
 		} else {
 			this.setActiveSlide(0);
+		}
+
+		if (this.options.paginationInfo) {
+			this.generatePaginator();
 		}
 	}
 
@@ -104,6 +110,34 @@ class Fader {
 		return arrowsContainer.querySelectorAll('button');
 	}
 
+	generatePaginator() {
+		const paginator = document.createElement('p');
+		paginator.classList.add('slider__pagination');
+		const currentSlide = document.createElement('span');
+		currentSlide.innerHTML = '1';
+		currentSlide.classList.add('slider__pagination-current');
+		const separator = document.createElement('span');
+		separator.innerHTML = this.options.paginationInfoSeparator;
+		separator.classList.add('slider__pagination-separator');
+		const totalSlides = document.createElement('span');
+		totalSlides.innerHTML = this.slides.length;
+		totalSlides.classList.add('slider__pagination-total');
+
+		paginator.appendChild(currentSlide);
+		paginator.appendChild(separator);
+		paginator.appendChild(totalSlides);
+		this.slider.parentNode.insertBefore(paginator, this.slider.prevSibling);
+
+		// Listen for the event.
+		this.slider.addEventListener(
+			'slide-changed',
+			function(ev) {
+				currentSlide.innerHTML = ev.detail.activeSlideIndex + 1;
+			},
+			false,
+		);
+	}
+
 	handleClickedBullet(ev) {
 		const { index } = ev.target.dataset;
 		this.resetActiveBullet();
@@ -165,6 +199,13 @@ class Fader {
 	}
 
 	setActiveSlide(index) {
+		const event = new CustomEvent('slide-changed', {
+			detail: {
+				activeSlideIndex: index,
+			},
+		});
+		this.slider.dispatchEvent(event);
+
 		this.slides[index].classList.add('slider__slide--active');
 	}
 

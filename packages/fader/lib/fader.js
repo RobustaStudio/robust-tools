@@ -13,7 +13,7 @@ class Fader {
 			prevArrow: 'Prev',
 			nextArrow: 'Next',
 			paginationInfo: false,
-			paginationInfoSeparator: ' out of ',
+			paginationInfoSeparator: ' out of of ',
 		};
 		this.options = { ...defaultOptions, ...this.options };
 		this.selector = selector;
@@ -63,7 +63,7 @@ class Fader {
 		const sliderWrapper = document.createElement('div');
 		sliderWrapper.classList.add(...this.options.wrapperClasses);
 		this.slider.classList.add('slider__slides');
-		this.slider.parentNode.appendChild(sliderWrapper);
+		this.slider.parentNode.insertBefore(sliderWrapper, this.slider);
 		sliderWrapper.appendChild(this.slider);
 		return sliderWrapper;
 	}
@@ -131,8 +131,8 @@ class Fader {
 		// Listen for the event.
 		this.slider.addEventListener(
 			'slide-changed',
-			function(ev) {
-				currentSlide.innerHTML = ev.detail.activeSlideIndex + 1;
+			function(event) {
+				currentSlide.innerHTML = event.detail.activeSlideIndex + 1;
 			},
 			false,
 		);
